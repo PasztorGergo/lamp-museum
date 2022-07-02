@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Hero, News, About } from "../components";
 
 const Home: NextPage = () => {
   return (
@@ -7,6 +8,11 @@ const Home: NextPage = () => {
       <Head>
         <title>Lámpa Múzeum</title>
       </Head>
+      <Hero />
+      <main>
+        <About />
+        <News />
+      </main>
     </>
   );
 };

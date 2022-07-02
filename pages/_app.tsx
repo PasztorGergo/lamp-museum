@@ -1,13 +1,16 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import { Header, Navigation } from "../components";
+import NavProvider from "../Providers/navProvider";
 import { AppShell } from "@mantine/core";
-import { Navigation } from "../components";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AppShell navbar={<Navigation />}>
-      <Component {...pageProps} />
-    </AppShell>
+    <NavProvider>
+      <AppShell navbar={<Navigation />} header={<Header />}>
+        <Component {...pageProps} />
+      </AppShell>
+    </NavProvider>
   );
 }
 
