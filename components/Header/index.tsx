@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Anchor,
   Burger,
-  Container,
   Group,
   Header as H,
   MediaQuery,
@@ -15,15 +14,20 @@ import { useMediaQuery, useWindowScroll } from "@mantine/hooks";
 type Props = {};
 
 export default function Header({}: Props) {
-  const breakPoint = useMediaQuery("(min-width: 790px)");
+  const breakPoint = useMediaQuery("(min-width: 790px)", false);
   const [scroll, scrollTo] = useWindowScroll();
   const { open, setOpen }: any = useNav();
   const theme = useMantineTheme();
   return (
     <H
       height="6rem"
-      px={breakPoint ? "6rem" : "xl"}
-      sx={{ borderBottom: "none", background: "transparent" }}
+      px={breakPoint ? "6em" : "xl"}
+      sx={{
+        borderBottom: scroll.y > 10 ? "1px solid #e9ecef" : "none",
+        background:
+          scroll.y > 10 ? theme.colors.orange[1] : theme.colors.orange[0],
+        transition: "background 250ms cubic-bezier(0.53, 0.16, 0.79, 0.21)",
+      }}
       fixed
     >
       <MediaQuery largerThan="sm" styles={{ display: "none" }}>
@@ -35,7 +39,7 @@ export default function Header({}: Props) {
             opened={open}
             onClick={() => setOpen((prev: boolean) => !prev)}
             size="md"
-            color="#ff9e2f"
+            color={theme.colors.gray[8]}
             mr="xl"
             sx={{ height: "100%" }}
           />
@@ -44,7 +48,9 @@ export default function Header({}: Props) {
       <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
         <Group position="apart" sx={{ height: "100%" }}>
           <Anchor component={Link} href="/">
-            <a className="brand">Lámpa Múzeum</a>
+            <a className="brand" style={{ color: theme.colors.gray[8] }}>
+              Lámpa Múzeum
+            </a>
           </Anchor>
           <Group position="right" spacing="lg">
             <Anchor component={Link} href="/tortenetunk" className="nav-link">

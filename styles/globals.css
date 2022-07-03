@@ -18,11 +18,16 @@ a {
 .nav-link {
   text-transform: uppercase;
   font-weight: 600;
+  color: #343a40;
   font-size: 0.85rem;
-  color: #ff9e2f;
+}
+.nav-link:hover {
+  color: #626e78;
 }
 .brand {
   font-weight: 600;
   font-size: 1.15rem;
-  color: #ff9e2f;
+}
+main {
+  padding: 0 !important;
 }
