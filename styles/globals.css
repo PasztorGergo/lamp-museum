@@ -14,3 +14,15 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.nav-link {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #ff9e2f;
+}
+.brand {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #ff9e2f;
+}

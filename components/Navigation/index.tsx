@@ -25,9 +25,9 @@ export default function Navigation({}: Props) {
       height="6rem"
       p="xs"
       width={{ sm: "10rem", base: "100%" }}
-      fixed
       className={classes.nav}
       hidden={!open}
+      fixed
     >
       <Navbar.Section>
         <Anchor component={Link} href="/" className={classes.brand}>
