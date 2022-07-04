@@ -10,13 +10,15 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import React from "react";
+import { useAnimation, motion } from "framer-motion";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 type Props = {};
 
 const useStyles = createStyles((theme) => ({
   imageOne: {
-    width: "30%",
+    width: "100%",
     height: "auto",
   },
   section: {
@@ -26,12 +28,33 @@ const useStyles = createStyles((theme) => ({
   title: {
     marginBottom: "2rem",
   },
+  imageContainer: {
+    border: "4px solid white",
+    position: "absolute",
+    width: "100%",
+    height: "auto",
+    top: "0",
+    left: "0",
+  },
 }));
 
 export default function About({}: Props) {
+  const [ref, inView] = useInView();
+  const controls = useAnimation();
   const theme = useMantineTheme();
   const { classes } = useStyles();
   const breakpoint = useMediaQuery("(min-width: 790px)", false);
+
+  useEffect(() => {
+    if (inView) {
+      controls.start((i) => ({
+        translateY: 0,
+        opacity: 1,
+        transition: { delay: i * 0.3 },
+      }));
+    }
+  }, [inView, controls]);
+
   return (
     <section className={classes.section} style={{ height: "100vh" }}>
       <Title sx={{ color: theme.colors.gray[8] }} className={classes.title}>
@@ -48,35 +71,47 @@ export default function About({}: Props) {
             width: "40%",
           }}
         >
-          <Image
-            src="/images/measure.jpg"
-            className={classes.imageOne}
-            alt="Fénykép Csíkász Leventéről"
-            radius="sm"
-            sx={{
-              border: "4px solid white",
-              position: "absolute",
-              width: "100%",
-              height: "auto",
-              top: "0",
-              left: "0",
-            }}
-          />
-          <Image
-            src="/images/rozsnyoLamps.jpg"
-            className={classes.imageOne}
-            alt="Rozsnyo lámpa"
-            radius="sm"
-            sx={{
-              border: "4px solid white",
-              position: "absolute",
-              width: "70%",
-              height: "auto",
-              top: "-5rem",
-              left: "-2rem",
-              borderRadius: "4px",
-            }}
-          />
+          <motion.div
+            animate={controls}
+            ref={ref}
+            initial={{ opacity: 0, translateY: "60%" }}
+            className={classes.imageContainer}
+            custom={3}
+          >
+            <Image
+              src="/images/measure.jpg"
+              className={classes.imageOne}
+              alt="Fénykép Csíkász Leventéről"
+              radius="sm"
+              sx={{
+                border: "4px solid white",
+                borderRadius: "4px",
+              }}
+            />
+          </motion.div>
+          <motion.div
+            animate={controls}
+            ref={ref}
+            initial={{ opacity: 0, translateY: "60%" }}
+            className={classes.imageContainer}
+            custom={4}
+          >
+            <Image
+              src="/images/rozsnyoLamps.jpg"
+              className={classes.imageOne}
+              alt="Rozsnyo lámpa"
+              radius="sm"
+              sx={{
+                border: "4px solid white",
+                position: "absolute",
+                width: "70%",
+                height: "auto",
+                top: "-5rem",
+                left: "-2rem",
+                borderRadius: "4px",
+              }}
+            />
+          </motion.div>
         </Box>
         <Stack justify="center" align="center" sx={{ width: "50%" }}>
           <Blockquote
