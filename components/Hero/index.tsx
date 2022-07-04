@@ -45,6 +45,9 @@ const useStyles = createStyles((theme) => ({
     zIndex: 10,
     placeSelf: "center",
   },
+  text: {
+    color: theme.colors.gray[8],
+  },
 }));
 
 export default function Hero() {
@@ -56,15 +59,20 @@ export default function Hero() {
     <header className={classes.header}>
       <Group pl={breakPoint ? "6em" : "xl"} className={classes.group}>
         <Stack className={classes.stack} justify="center">
-          <Title sx={{ color: theme.colors.gray[8] }} order={1}>
+          <Title className={classes.text} order={1}>
             A múlt fényeinek nyomában
           </Title>
-          <Text size="lg" color="gray" sx={{ marginBottom: "8rem" }}>
+          <Text
+            className={classes.text}
+            size="lg"
+            color="gray"
+            sx={{ marginBottom: "8rem" }}
+          >
             Megmentjük megőrizzük, és megmutatjuk az utókornak a történelem
             fényforrásait amelyeket ránk hagytak őseink.
           </Text>
           <Stack justify="center" sx={{ textAlign: "center" }}>
-            <Text>Tudjon meg többet</Text>
+            <Text className={classes.text}>Tudjon meg többet</Text>
             <ScrollIndicator />
           </Stack>
         </Stack>
@@ -72,18 +80,24 @@ export default function Hero() {
       <Paper p="md" withBorder className={classes.performance}>
         <Group position="center" grow>
           <Stack justify="center" align="center">
-            <Title order={5}>Gyűjteményünk</Title>
-            <Text>+5000 lámpa</Text>
+            <Title className={classes.text} order={5}>
+              Gyűjteményünk
+            </Title>
+            <Text className={classes.text}>+5000 lámpa</Text>
           </Stack>
           <Divider sx={{ height: "100%" }} orientation="vertical" />
           <Stack justify="center" align="center">
-            <Title order={5}>Városok</Title>
-            <Text>+10</Text>
+            <Title className={classes.text} order={5}>
+              Városok
+            </Title>
+            <Text className={classes.text}>+10</Text>
           </Stack>
           <Divider sx={{ height: "100%" }} orientation="vertical" />
           <Stack justify="center" align="center">
-            <Title order={5}>Cikkek</Title>
-            <Text>+10</Text>
+            <Title className={classes.text} order={5}>
+              Cikkek
+            </Title>
+            <Text className={classes.text}>+10</Text>
           </Stack>
         </Group>
       </Paper>

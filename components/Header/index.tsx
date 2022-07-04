@@ -32,7 +32,11 @@ export default function Header({}: Props) {
     >
       <MediaQuery largerThan="sm" styles={{ display: "none" }}>
         <Group position="apart" sx={{ height: "100%" }}>
-          <Anchor component={Link} href="/">
+          <Anchor
+            component={Link}
+            href="/"
+            sx={{ color: theme.colors.gray[8] }}
+          >
             <a className="brand">Lámpa Múzeum</a>
           </Anchor>
           <Burger
@@ -47,22 +51,45 @@ export default function Header({}: Props) {
       </MediaQuery>
       <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
         <Group position="apart" sx={{ height: "100%" }}>
-          <Anchor component={Link} href="/">
+          <Anchor
+            component={Link}
+            href="/"
+            sx={{ color: theme.colors.gray[8] }}
+          >
             <a className="brand" style={{ color: theme.colors.gray[8] }}>
               Lámpa Múzeum
             </a>
           </Anchor>
           <Group position="right" spacing="lg">
-            <Anchor component={Link} href="/tortenetunk" className="nav-link">
+            <Anchor
+              component={Link}
+              href="/tortenetunk"
+              className="nav-link"
+              sx={{ color: theme.colors.gray[8] }}
+            >
               <a className="nav-link">Történetünk</a>
             </Anchor>
-            <Anchor component={Link} href="/" className="nav-link">
+            <Anchor
+              component={Link}
+              href="/"
+              className="nav-link"
+              sx={{ color: theme.colors.gray[8] }}
+            >
               <a className="nav-link">Gyűjteményünk</a>
             </Anchor>
-            <Anchor component={Link} href="/referenciak" className="nav-link">
+            <Anchor
+              component={Link}
+              href="/referenciak"
+              className="nav-link"
+              sx={{ color: theme.colors.gray[8] }}
+            >
               <a className="nav-link">Referenciák</a>
             </Anchor>
-            <Anchor component={Link} href="/tamogatoink">
+            <Anchor
+              component={Link}
+              href="/tamogatoink"
+              sx={{ color: theme.colors.gray[8] }}
+            >
               <a className="nav-link">Támogatóink</a>
             </Anchor>
           </Group>
