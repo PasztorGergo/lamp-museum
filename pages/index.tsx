@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Lámpa Múzeum</title>
+        <title>Villamostechnikai Gyűjtemény</title>
       </Head>
       <Hero />
       <main>

@@ -15,15 +15,23 @@ import ScrollIndicator from "../ScrollIndicator";
 const useStyles = createStyles((theme) => ({
   header: {
     height: "90vh",
-    marginTop: "6rem",
+    marginTop: "2rem",
     background: `${theme.colors.orange[0]}6f`,
     backgroundImage: "url('/images/lampSaving-removebg-preview.png')",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "contain, cover",
-    backgroundPositionX: "100%",
+    backgroundSize: "cover",
+    backgroundPositionX: "30%",
     width: "100%",
     position: "relative",
     display: "grid",
+    backgroundBlendMode: "screen",
+    backgroundPositionY: "100%",
+    [theme.fn.largerThan("sm")]: {
+      backgroundSize: "contain, cover",
+      backgroundPositionY: 0,
+      marginTop: "6rem",
+      backgroundPositionX: "100%",
+    },
   },
   stack: {
     height: "100%",
@@ -40,10 +48,17 @@ const useStyles = createStyles((theme) => ({
   performance: {
     position: "absolute",
     top: "90%",
-    width: "60%",
+    width: "100%",
     margin: "auto",
     zIndex: 10,
     placeSelf: "center",
+    border: "none",
+    borderRadius: "0",
+    [theme.fn.largerThan("md")]: {
+      width: "60%",
+      border: "1px solid #e9ecef",
+      borderRadius: "4px",
+    },
   },
   text: {
     color: theme.colors.gray[8],

@@ -11,14 +11,22 @@ import {
   Group,
 } from "@mantine/core";
 import { BrandFacebook, BrandTwitter, Mail } from "tabler-icons-react";
+import { useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   footer: {
     backgroundColor: theme.colors.gray[8],
-    padding: " 2rem 6rem",
+    padding: " 2rem",
+    [theme.fn.largerThan("sm")]: {
+      padding: "2rem 6rem",
+    },
   },
   text: {
+    textAlign: "center",
     color: theme.colors.gray[1],
+    [theme.fn.largerThan("sm")]: {
+      textAlign: "left",
+    },
   },
   icon: {
     color: theme.colors.gray[0],
@@ -28,10 +36,15 @@ const useStyles = createStyles((theme) => ({
 
 export default function Footer() {
   const { classes } = useStyles();
+  const breakpoint = useMediaQuery("(min-width:830px)");
   return (
-    <F height="30vh" className={classes.footer}>
-      <Group position="apart" align="center">
-        <Stack>
+    <F height="fit-content" className={classes.footer}>
+      <Group
+        position="apart"
+        align="center"
+        direction={breakpoint ? "row" : "column"}
+      >
+        <Stack justify={breakpoint ? "start" : "center"}>
           <Title className={classes.text}>Elérhetőségeink</Title>
           <List>
             <List.Item

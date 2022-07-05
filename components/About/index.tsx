@@ -22,11 +22,19 @@ const useStyles = createStyles((theme) => ({
     height: "auto",
   },
   section: {
-    marginTop: "12rem",
-    padding: "0 6rem",
+    minHeight: "100vh",
+    marginTop: "8rem",
+    padding: "2rem",
+    [theme.fn.largerThan("sm")]: {
+      padding: "0 6rem",
+      marginTop: "12rem",
+    },
   },
   title: {
-    marginBottom: "2rem",
+    marginBottom: "6rem",
+    [theme.fn.largerThan("sm")]: {
+      marginBottom: "2rem",
+    },
   },
   imageContainer: {
     border: "4px solid white",
@@ -35,6 +43,21 @@ const useStyles = createStyles((theme) => ({
     height: "auto",
     top: "0",
     left: "0",
+  },
+  quote: {
+    width: "100%",
+    [theme.fn.largerThan("sm")]: {
+      width: "50%",
+    },
+  },
+  imgContainer: {
+    width: "100%",
+    position: "relative",
+    height: "30vh",
+    [theme.fn.largerThan("sm")]: {
+      width: "40%",
+      height: "100%",
+    },
   },
 }));
 
@@ -50,13 +73,13 @@ export default function About({}: Props) {
       controls.start((i) => ({
         translateY: 0,
         opacity: 1,
-        transition: { delay: i * 0.3 },
+        transition: { delay: i * 0.3, duration: 0.7 },
       }));
     }
   }, [inView, controls]);
 
   return (
-    <section className={classes.section} style={{ height: "100vh" }}>
+    <section className={classes.section}>
       <Title sx={{ color: theme.colors.gray[8] }} className={classes.title}>
         Hagy mutatkozzak be!
       </Title>
@@ -65,18 +88,13 @@ export default function About({}: Props) {
         spacing="xl"
         direction={breakpoint ? "row" : "column"}
       >
-        <Box
-          sx={{
-            position: "relative",
-            width: "40%",
-          }}
-        >
+        <Box className={classes.imgContainer}>
           <motion.div
             animate={controls}
             ref={ref}
             initial={{ opacity: 0, translateY: "60%" }}
             className={classes.imageContainer}
-            custom={3}
+            custom={1}
           >
             <Image
               src="/images/measure.jpg"
@@ -94,7 +112,7 @@ export default function About({}: Props) {
             ref={ref}
             initial={{ opacity: 0, translateY: "60%" }}
             className={classes.imageContainer}
-            custom={4}
+            custom={2}
           >
             <Image
               src="/images/rozsnyoLamps.jpg"
@@ -113,7 +131,7 @@ export default function About({}: Props) {
             />
           </motion.div>
         </Box>
-        <Stack justify="center" align="center" sx={{ width: "50%" }}>
+        <Stack justify="center" align="center" className={classes.quote}>
           <Blockquote
             cite="- Csíkász Levente"
             sx={{ color: theme.colors.gray[8] }}
