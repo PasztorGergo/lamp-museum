@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const tortenetunk: NextPage = () => {
+const Tortenetunk: NextPage = () => {
   const { classes } = useStyles();
   return (
     <>
@@ -37,4 +37,4 @@ const tortenetunk: NextPage = () => {
   );
 };
 
-export default tortenetunk;
+export default Tortenetunk;

@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 
-const referenciak: NextPage = () => {
+const Referenciak: NextPage = () => {
   return (
     <>
       <Head>
@@ -12,4 +12,4 @@ const referenciak: NextPage = () => {
   );
 };
 
-export default referenciak;
+export default Referenciak;

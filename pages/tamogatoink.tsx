@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 
-const tamogatoink: NextPage = () => {
+const Tamogatoink: NextPage = () => {
   return (
     <>
       <Head>
@@ -12,4 +12,4 @@ const tamogatoink: NextPage = () => {
   );
 };
 
-export default tamogatoink;
+export default Tamogatoink;
