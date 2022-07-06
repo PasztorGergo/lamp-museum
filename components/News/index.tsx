@@ -35,7 +35,7 @@ export default function News({}: Props) {
         Híreink <NewsIcon size={28} />
       </Title>
       <Group position="apart" grow>
-        <Card sx={{ minWidth: !breakpoint && "100%" }}>
+        <Card sx={{ minWidth: breakpoint ? "initial" : "100%" }}>
           <Card.Section>
             <Image src="/images/ufoLamps.jpg" alt="ufo lamps" height={160} />
           </Card.Section>
@@ -51,7 +51,7 @@ export default function News({}: Props) {
             </Text>
           </Stack>
         </Card>
-        <Card sx={{ minWidth: !breakpoint && "100%" }}>
+        <Card sx={{ minWidth: breakpoint ? "initial" : "100%" }}>
           <Card.Section>
             <Image src="/images/ufoLamps.jpg" alt="ufo lamps" height={160} />
           </Card.Section>
@@ -67,7 +67,7 @@ export default function News({}: Props) {
             </Text>
           </Stack>
         </Card>
-        <Card sx={{ minWidth: !breakpoint && "100%" }}>
+        <Card sx={{ minWidth: breakpoint ? "initial" : "100%" }}>
           <Card.Section>
             <Image src="/images/ufoLamps.jpg" alt="ufo lamps" height={160} />
           </Card.Section>
