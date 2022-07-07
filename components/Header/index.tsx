@@ -46,7 +46,7 @@ export default function Header({}: Props) {
       fixed
       ref={ref}
     >
-      <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+      <MediaQuery largerThan="md" styles={{ display: "none" }}>
         <Box sx={{ height: "100%", width: "100%", position: "relative" }}>
           <Group position="apart" sx={{ height: "100%", padding: "24px" }}>
             <Anchor
@@ -112,7 +112,7 @@ export default function Header({}: Props) {
           </motion.div>
         </Box>
       </MediaQuery>
-      <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
+      <MediaQuery smallerThan="md" styles={{ display: "none" }}>
         <Group position="apart" sx={{ height: "100%" }}>
           <Anchor
             component={Link}

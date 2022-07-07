@@ -36,7 +36,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function Footer() {
   const { classes } = useStyles();
-  const breakpoint = useMediaQuery("(min-width:830px)");
+  const breakpoint = useMediaQuery("(min-width:830px)", false);
   return (
     <F height="fit-content" className={classes.footer}>
       <Group

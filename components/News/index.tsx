@@ -7,9 +7,11 @@ import {
   Image,
   Stack,
   Text,
+  Pagination,
 } from "@mantine/core";
 import { News as NewsIcon } from "tabler-icons-react";
 import { useMediaQuery } from "@mantine/hooks";
+import NewsCard from "../NewsCard";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -24,9 +26,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-type Props = {};
+type Props = {
+  newsArray: Array<any>;
+};
 
-export default function News({}: Props) {
+export default function News({ newsArray }: Props) {
   const { classes } = useStyles();
   const breakpoint = useMediaQuery("(min-width:790px)", false);
   return (
@@ -35,55 +39,11 @@ export default function News({}: Props) {
         Híreink <NewsIcon size={28} />
       </Title>
       <Group position="apart" grow>
-        <Card sx={{ minWidth: breakpoint ? "initial" : "100%" }}>
-          <Card.Section>
-            <Image src="/images/ufoLamps.jpg" alt="ufo lamps" height={160} />
-          </Card.Section>
-          <Stack mt="1.25rem">
-            <Title className={classes.text} order={5}>
-              Ufo lámpák
-            </Title>
-            <Text className={classes.text}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-              quaerat perferendis ab! Possimus beatae eaque autem ab porro
-              quibusdam quaerat voluptatibus quasi tempore doloribus nostrum
-              animi eos est, alias iusto?
-            </Text>
-          </Stack>
-        </Card>
-        <Card sx={{ minWidth: breakpoint ? "initial" : "100%" }}>
-          <Card.Section>
-            <Image src="/images/ufoLamps.jpg" alt="ufo lamps" height={160} />
-          </Card.Section>
-          <Stack mt="1.25rem">
-            <Title className={classes.text} order={5}>
-              Ufo lámpák
-            </Title>
-            <Text className={classes.text}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-              quaerat perferendis ab! Possimus beatae eaque autem ab porro
-              quibusdam quaerat voluptatibus quasi tempore doloribus nostrum
-              animi eos est, alias iusto?
-            </Text>
-          </Stack>
-        </Card>
-        <Card sx={{ minWidth: breakpoint ? "initial" : "100%" }}>
-          <Card.Section>
-            <Image src="/images/ufoLamps.jpg" alt="ufo lamps" height={160} />
-          </Card.Section>
-          <Stack mt="1.25rem">
-            <Title className={classes.text} order={5}>
-              Ufo lámpák
-            </Title>
-            <Text className={classes.text}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-              quaerat perferendis ab! Possimus beatae eaque autem ab porro
-              quibusdam quaerat voluptatibus quasi tempore doloribus nostrum
-              animi eos est, alias iusto?
-            </Text>
-          </Stack>
-        </Card>
+        {newsArray.map(({ src, title, text, date }) => (
+          <NewsCard src={src} title={title} text={text} date={date} />
+        ))}
       </Group>
+      <Pagination total={Math.ceil(newsArray.length / 3)} />
     </section>
   );
 }

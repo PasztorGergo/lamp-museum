@@ -1,6 +1,6 @@
-import { Electronic, Lamp, Retro, Special } from "../models";
+import { Electronic, Lamp, News, Retro, Special } from "../models";
 
-export default async function getLampByType(type: string) {
+export async function getLampByType(type: string) {
   const lampArray = await (type == "lamp"
     ? Lamp.find({})
     : type == "retro"
@@ -10,4 +10,11 @@ export default async function getLampByType(type: string) {
     : Electronic.find({}));
 
   return JSON.parse(JSON.stringify(lampArray));
+}
+
+export async function getNews() {
+  const newsArray = await News.find({});
+  console.log(News.collection);
+
+  return newsArray;
 }

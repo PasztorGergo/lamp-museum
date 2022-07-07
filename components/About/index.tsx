@@ -18,14 +18,15 @@ type Props = {};
 
 const useStyles = createStyles((theme) => ({
   imageOne: {
-    width: "100%",
     height: "auto",
+    width: "100%",
   },
   section: {
     minHeight: "100vh",
     marginTop: "8rem",
     padding: "2rem",
     [theme.fn.largerThan("sm")]: {
+      marginBottom: "2rem",
       padding: "0 6rem",
       marginTop: "12rem",
     },
@@ -46,12 +47,13 @@ const useStyles = createStyles((theme) => ({
   },
   quote: {
     width: "100%",
-    [theme.fn.largerThan("sm")]: {
+    [theme.fn.largerThan("md")]: {
       width: "50%",
     },
   },
-  imgContainer: {
-    width: "100%",
+  imgHolder: {
+    margin: "10% 0 30% 0",
+    width: "80%",
     position: "relative",
     height: "30vh",
     [theme.fn.largerThan("sm")]: {
@@ -88,13 +90,13 @@ export default function About({}: Props) {
         spacing="xl"
         direction={breakpoint ? "row" : "column"}
       >
-        <Box className={classes.imgContainer}>
+        <Box className={classes.imgHolder}>
           <motion.div
             animate={controls}
             ref={ref}
             initial={{ opacity: 0, translateY: "60%" }}
-            className={classes.imageContainer}
             custom={1}
+            className={classes.imageContainer}
           >
             <Image
               src="/images/measure.jpg"
@@ -116,7 +118,6 @@ export default function About({}: Props) {
           >
             <Image
               src="/images/rozsnyoLamps.jpg"
-              className={classes.imageOne}
               alt="Rozsnyo lámpa"
               radius="sm"
               sx={{

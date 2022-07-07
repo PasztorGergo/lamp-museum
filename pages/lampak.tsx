@@ -3,7 +3,7 @@ import { NextPage } from "next/types";
 import React from "react";
 import { LampDetails } from "../components";
 import connectDB from "../lib/connect";
-import getLampByType from "../lib/fetch";
+import { getLampByType } from "../lib/fetch";
 
 const Lampak: NextPage = ({ lamps }: any) => {
   return (
