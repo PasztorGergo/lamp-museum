@@ -39,8 +39,8 @@ export default function News({ newsArray }: Props) {
         Híreink <NewsIcon size={28} />
       </Title>
       <Group position="apart" grow>
-        {newsArray.map(({ src, title, text, date }) => (
-          <NewsCard src={src} title={title} text={text} date={date} />
+        {newsArray.map(({ src, title, text, date }, idx) => (
+          <NewsCard key={idx} src={src} title={title} text={text} date={date} />
         ))}
       </Group>
       <Pagination total={Math.ceil(newsArray.length / 3)} />
