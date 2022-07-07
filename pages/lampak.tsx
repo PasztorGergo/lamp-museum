@@ -11,7 +11,7 @@ const Lampak: NextPage = ({ lamps }: any) => {
       <Head>
         <title>Lámpák</title>
       </Head>
-      {lamps.map(({ src, name, type, description, date }: any, idx) => (
+      {lamps.map(({ src, name, type, description, date }: any, idx: number) => (
         <LampDetails
           date={date}
           src={src}
