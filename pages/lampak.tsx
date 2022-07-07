@@ -11,13 +11,14 @@ const Lampak: NextPage = ({ lamps }: any) => {
       <Head>
         <title>Lámpák</title>
       </Head>
-      {lamps.map(({ src, name, type, description, date }: any) => (
+      {lamps.map(({ src, name, type, description, date }: any, idx) => (
         <LampDetails
           date={date}
           src={src}
           name={name}
           type={type}
           description={description}
+          key={idx}
         />
       ))}
     </>
