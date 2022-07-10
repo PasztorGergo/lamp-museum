@@ -14,7 +14,6 @@ export async function getLampByType(type: string) {
 
 export async function getNews() {
   const newsArray = await News.find({});
-  console.log(News.collection);
 
-  return newsArray;
+  return JSON.parse(JSON.stringify(newsArray));
 }

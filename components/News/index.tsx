@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   createStyles,
@@ -31,6 +31,7 @@ type Props = {
 };
 
 export default function News({ newsArray }: Props) {
+  const [page, setPage] = useState(1);
   const { classes } = useStyles();
   const breakpoint = useMediaQuery("(min-width:790px)", false);
   return (
@@ -43,7 +44,11 @@ export default function News({ newsArray }: Props) {
           <NewsCard key={idx} src={src} title={title} text={text} date={date} />
         ))}
       </Group>
-      <Pagination total={Math.ceil(newsArray.length / 3)} />
+      <Pagination
+        page={page}
+        onChange={(e) => setPage(e)}
+        total={newsArray.length}
+      />
     </section>
   );
 }

@@ -2,8 +2,7 @@ import { Schema, model, models } from "mongoose";
 
 export const retroSchema = new Schema({
   name: String,
-  type: String,
-  date: Date,
+  date: String,
   description: String,
   src: String,
 });
