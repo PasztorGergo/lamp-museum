@@ -107,13 +107,6 @@ export default function Hero() {
             </Title>
             <Text className={classes.text}>+10 helyszín</Text>
           </Stack>
-          <Divider sx={{ height: "100%" }} orientation="vertical" />
-          <Stack justify="center" align="center">
-            <Title className={classes.text} order={5}>
-              Cikkek
-            </Title>
-            <Text className={classes.text}>+10 hír</Text>
-          </Stack>
         </Group>
       </Paper>
     </header>

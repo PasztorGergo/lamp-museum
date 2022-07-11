@@ -87,7 +87,7 @@ export default function Header({}: Props) {
               </Anchor>
               <Anchor
                 component={Link}
-                href="/"
+                href="/lampak"
                 className="nav-link"
                 sx={{ color: theme.colors.gray[8] }}
               >
@@ -134,7 +134,7 @@ export default function Header({}: Props) {
             </Anchor>
             <Anchor
               component={Link}
-              href="/"
+              href="/lampak"
               className="nav-link"
               sx={{ color: theme.colors.gray[8] }}
             >

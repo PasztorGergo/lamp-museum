@@ -9,6 +9,8 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { Testimonial } from "../components";
+import connectDB from "../lib/connect";
+import { getSponsors } from "../lib/fetch";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -17,14 +19,17 @@ const useStyles = createStyles((theme) => ({
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
     gridGap: "20px",
-    padding: " 3rem 2rem 3rem",
+
     [theme.fn.largerThan("sm")]: {
       padding: "3rem 6rem 3rem",
+    },
+    [theme.fn.largerThan("xs")]: {
+      padding: " 3rem 2rem 3rem",
     },
   },
 }));
 
-const Tamogatoink: NextPage = () => {
+const Tamogatoink: NextPage = ({ sponsorArray }: any) => {
   const theme = useMantineTheme();
   const { classes } = useStyles();
   return (
@@ -41,11 +46,23 @@ const Tamogatoink: NextPage = () => {
       </Stack>
 
       <section className={classes.section}>
-        <Testimonial name="John Doe" profileImg="" />
-        <Testimonial name="John Doe" profileImg="" />
-        <Testimonial name="John Doe" profileImg="" />
-        <Testimonial name="John Doe" profileImg="" />
-        <Testimonial name="John Doe" profileImg="" />
+        {sponsorArray?.length > 0 ? (
+          sponsorArray.map(({ name, profileImg, contact }: any, id: number) => (
+            <Testimonial
+              key={id}
+              contact={contact}
+              name={name}
+              profileImg={profileImg}
+            />
+          ))
+        ) : (
+          <Stack align="center" justify="center">
+            <Title sx={{ color: theme.colors.gray[8] }}>
+              Jelenleg nincsenek támogatóink!
+            </Title>
+            <Text color="dimmed">Legyen Ön az első!</Text>
+          </Stack>
+        )}
       </section>
       <Title
         sx={{ width: "100%", color: theme.colors.gray[8] }}
@@ -57,5 +74,17 @@ const Tamogatoink: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  await connectDB();
+
+  const sponsorArray = await getSponsors();
+
+  return {
+    props: {
+      sponsorArray,
+    },
+  };
+}
 
 export default Tamogatoink;

@@ -9,6 +9,8 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { Testimonial } from "../components";
+import connectDB from "../lib/connect";
+import { getTestimonials } from "../lib/fetch";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -24,7 +26,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Referenciak: NextPage = () => {
+const Referenciak: NextPage = ({ testiminalArray }: any) => {
   const theme = useMantineTheme();
   const { classes } = useStyles();
   return (
@@ -40,11 +42,16 @@ const Referenciak: NextPage = () => {
       </Stack>
 
       <section className={classes.section}>
-        <Testimonial name="John Doe" profileImg="" comment="Hi" />
-        <Testimonial name="John Doe" profileImg="" comment="Hi" />
-        <Testimonial name="John Doe" profileImg="" comment="Hi" />
-        <Testimonial name="John Doe" profileImg="" comment="Hi" />
-        <Testimonial name="John Doe" profileImg="" comment="Hi" />
+        {testiminalArray.map(
+          ({ name, comment, profileImg }: any, index: number) => (
+            <Testimonial
+              key={index}
+              name={name}
+              comment={comment}
+              profileImg={profileImg}
+            />
+          )
+        )}
       </section>
       <Title
         sx={{ width: "100%", color: theme.colors.gray[8] }}
@@ -56,5 +63,17 @@ const Referenciak: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  await connectDB();
+
+  const testiminalArray = await getTestimonials();
+
+  return {
+    props: {
+      testiminalArray,
+    },
+  };
+}
 
 export default Referenciak;

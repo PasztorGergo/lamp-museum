@@ -3,6 +3,8 @@ import Head from "next/head";
 import { createStyles, Stack, Text, Title } from "@mantine/core";
 import { History } from "../components";
 import { NextPage } from "next";
+import connectDB from "../lib/connect";
+import { getHistory } from "../lib/fetch";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -14,7 +16,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Tortenetunk: NextPage = () => {
+const Tortenetunk: NextPage = ({ historyArray }: any) => {
   const { classes } = useStyles();
   return (
     <>
@@ -32,9 +34,21 @@ const Tortenetunk: NextPage = () => {
           </Text>
         </Stack>
       </header>
-      <History />
+      <History historyArray={historyArray} />
     </>
   );
 };
+
+export async function getStaticProps() {
+  await connectDB();
+
+  const historyArray = await getHistory();
+
+  return {
+    props: {
+      historyArray,
+    },
+  };
+}
 
 export default Tortenetunk;

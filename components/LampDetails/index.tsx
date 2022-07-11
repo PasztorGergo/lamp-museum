@@ -7,18 +7,19 @@ import {
   Title,
   Text,
   createStyles,
+  Card,
 } from "@mantine/core";
 import DateText from "../DateText";
 
-type Props = {
-  src: string;
-  type: string;
-  name: string;
-  description: string;
-  date: string;
-};
-
 const useStyles = createStyles((theme) => ({
+  card: {
+    [theme.fn.largerThan("xs")]: {
+      width: "70vw",
+    },
+    [theme.fn.largerThan("sm")]: {
+      width: "25vw",
+    },
+  },
   text: {
     color: theme.colors.gray[8],
   },
@@ -30,23 +31,24 @@ export default function LampDetails({
   name,
   description,
   date,
-}: Props) {
+}: any) {
   const { classes } = useStyles();
   return (
-    <Paper shadow="xs" withBorder sx={{ marginTop: "6rem", maxWidth: "50vw" }}>
-      <Group>
+    <Card shadow="xs" withBorder sx={{ marginTop: "6rem", maxWidth: "25vw" }}>
+      <Card.Section>
         <Image src={src} alt={name} />
-        <Stack>
+      </Card.Section>
+      <Card.Section>
+        <Stack p="xl">
           <Title className={classes.text} order={3}>
             {name}
           </Title>
-          <Group>
-            <DateText date={date} />
-            <Text className={classes.text}>Típus: {type}</Text>
-          </Group>
+          <Text color="dimmed" size="sm">
+            {date}
+          </Text>
           <Text className={classes.text}>{description}</Text>
         </Stack>
-      </Group>
-    </Paper>
+      </Card.Section>
+    </Card>
   );
 }
