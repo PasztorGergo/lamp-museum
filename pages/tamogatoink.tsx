@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 import {
+  Box,
   createStyles,
   Stack,
   Text,
@@ -38,8 +39,10 @@ const Tamogatoink: NextPage = ({ sponsorArray }: any) => {
         <title>Támogatóink | Villamostechnikai Gyűjtemény</title>
       </Head>
       <Stack pt="8rem" px="6rem">
-        <Title sx={{ color: theme.colors.gray[8] }}>Támogatóink</Title>
-        <Text size="lg" sx={{ color: theme.colors.gray[8] }}>
+        <Title align="center" sx={{ color: theme.colors.gray[8] }}>
+          Támogatóink
+        </Title>
+        <Text align="center" size="lg" sx={{ color: theme.colors.gray[8] }}>
           Szeretnénk kifejezni hálánkat azoknak akik bármely utón-módon
           támogattak minket útunk során, ezért itt megjelenítettük Őket.
         </Text>
@@ -57,20 +60,24 @@ const Tamogatoink: NextPage = ({ sponsorArray }: any) => {
           ))
         ) : (
           <Stack align="center" justify="center">
-            <Title sx={{ color: theme.colors.gray[8] }}>
+            <Title align="center" sx={{ color: theme.colors.gray[8] }}>
               Jelenleg nincsenek támogatóink!
             </Title>
-            <Text color="dimmed">Legyen Ön az első!</Text>
+            <Text align="center" color="dimmed">
+              Legyen Ön az első!
+            </Text>
           </Stack>
         )}
       </section>
-      <Title
-        sx={{ width: "100%", color: theme.colors.gray[8] }}
-        align="center"
-        mb="3rem"
-      >
-        Lépjen kapcsolatba velünk és legyen Ön a következő támogatónk!
-      </Title>
+      <Box px="sm">
+        <Title
+          align="center"
+          sx={{ width: "100%", color: theme.colors.gray[8] }}
+          mb="3rem"
+        >
+          Lépjen kapcsolatba velünk és legyen Ön a következő támogatónk!
+        </Title>
+      </Box>
     </>
   );
 };

@@ -8,11 +8,16 @@ import {
   createStyles,
 } from "@mantine/core";
 import { Bulb } from "tabler-icons-react";
-import { useDocumentTitle } from "@mantine/hooks";
+import { useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   main: {
-    margin: " 3rem 0 6rem 6rem",
+    [theme.fn.largerThan("sm")]: {
+      margin: "3rem 0 6rem 6rem",
+    },
+    [theme.fn.smallerThan("sm")]: {
+      margin: "3rem 0.5rem 6rem 1rem",
+    },
   },
   text: {
     color: theme.colors.gray[8],
@@ -25,6 +30,7 @@ type Props = {
 
 export default function History({ historyArray }: Props) {
   const { classes } = useStyles();
+  const breakpoint = useMediaQuery("(min-width: 690px)", false);
   return (
     <section className={classes.main}>
       <Timeline active={Infinity} color="orange" bulletSize={32} lineWidth={3}>
@@ -42,7 +48,11 @@ export default function History({ historyArray }: Props) {
               <Text sx={{ width: "50%" }} className={classes.text}>
                 {text}
               </Text>
-              <Image src={src} radius="sm" width="30%" />
+              <Image
+                src={src}
+                radius="sm"
+                width={breakpoint ? "50%" : "100%"}
+              />
             </Group>
           </Timeline.Item>
         ))}
