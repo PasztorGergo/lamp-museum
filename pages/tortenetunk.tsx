@@ -4,7 +4,7 @@ import { createStyles, Stack, Text, Title } from "@mantine/core";
 import { History } from "../components";
 import { NextPage } from "next";
 import connectDB from "../lib/connect";
-import { getHistory } from "../lib/fetch";
+import { Histroy } from "../models";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -39,10 +39,12 @@ const Tortenetunk: NextPage = ({ historyArray }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   await connectDB();
 
-  const historyArray = await getHistory();
+  const historyArray = JSON.parse(JSON.stringify(await Histroy.find({})))
+    .sort((x: any) => x.date)
+    .reverse();
 
   return {
     props: {

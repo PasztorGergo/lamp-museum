@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import { Testimonial } from "../components";
 import connectDB from "../lib/connect";
-import { getTestimonials } from "../lib/fetch";
+import { Testimonial as T } from "../models";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -64,10 +64,10 @@ const Referenciak: NextPage = ({ testiminalArray }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   await connectDB();
 
-  const testiminalArray = await getTestimonials();
+  const testiminalArray = JSON.parse(JSON.stringify(await T.find({})));
 
   return {
     props: {

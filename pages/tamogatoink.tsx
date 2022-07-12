@@ -11,7 +11,7 @@ import {
 } from "@mantine/core";
 import { Testimonial } from "../components";
 import connectDB from "../lib/connect";
-import { getSponsors } from "../lib/fetch";
+import { Support } from "../models";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -82,10 +82,10 @@ const Tamogatoink: NextPage = ({ sponsorArray }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   await connectDB();
 
-  const sponsorArray = await getSponsors();
+  const sponsorArray = JSON.parse(JSON.stringify(await Support.find({})));
 
   return {
     props: {

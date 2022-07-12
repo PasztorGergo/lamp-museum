@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { Hero, News, About } from "../components";
 import connectDB from "../lib/connect";
-import { getNews } from "../lib/fetch";
+import { News as n } from "../models";
 
 const Home: NextPage = ({ newsArray }: any) => {
   return (
@@ -19,9 +19,12 @@ const Home: NextPage = ({ newsArray }: any) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   await connectDB();
-  const newsArray = await getNews();
+
+  const newsArray = JSON.parse(JSON.stringify(await n.find({})))
+    .sort((x: any) => x.date)
+    .reverse();
 
   return {
     props: {
