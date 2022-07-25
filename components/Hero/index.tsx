@@ -85,11 +85,6 @@ export default function Hero({ imgArray }: any) {
             <ScrollIndicator />
           </Stack>
         </Stack>
-        <Carousel autoPlay interval={5000} loop>
-          {imgArray?.map(({ title, src }: any, i: number) => (
-            <Image key={i} src={src} alt={title} width="100%" />
-          ))}
-        </Carousel>
       </Group>
       <Paper p="md" withBorder className={classes.performance}>
         <Group position="center" grow>
