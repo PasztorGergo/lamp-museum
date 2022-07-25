@@ -155,6 +155,13 @@ export default function Header({}: Props) {
             >
               <a className="nav-link">Támogatóink</a>
             </Anchor>
+            <Anchor
+              component={Link}
+              href="/partnerek"
+              sx={{ color: theme.colors.gray[8] }}
+            >
+              <a className="nav-link">Partner oldalak</a>
+            </Anchor>
           </Group>
         </Group>
       </MediaQuery>

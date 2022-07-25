@@ -5,5 +5,6 @@ export const historySchema = new Schema({
   date: Date,
   text: String,
   src: String,
+  genesis: Boolean,
 });
 export const Histroy = models.Histroy || model("Histroy", historySchema);

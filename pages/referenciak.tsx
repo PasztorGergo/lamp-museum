@@ -37,7 +37,8 @@ const Referenciak: NextPage = ({ testiminalArray }: any) => {
       <Stack pt="8rem" px="6rem">
         <Title sx={{ color: theme.colors.gray[8] }}>Referenciák</Title>
         <Text size="lg" sx={{ color: theme.colors.gray[8] }}>
-          Itt találja Partnereink véleményet munkáságunkról.
+          Látogatóink, illetve a nagyérdemű véleményét és a munkásságunkról
+          szóló cikkeket itt tekintheti meg.
         </Text>
       </Stack>
 
@@ -49,6 +50,7 @@ const Referenciak: NextPage = ({ testiminalArray }: any) => {
               name={name}
               comment={comment}
               profileImg={profileImg}
+              isPage={false}
             />
           )
         )}

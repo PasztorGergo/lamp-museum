@@ -19,7 +19,7 @@ type Props = {};
 const useStyles = createStyles((theme) => ({
   imageOne: {
     height: "auto",
-    width: "100%",
+    width: "80%",
   },
   section: {
     minHeight: "100vh",
@@ -38,12 +38,9 @@ const useStyles = createStyles((theme) => ({
     },
   },
   imageContainer: {
-    border: "4px solid white",
     position: "absolute",
     width: "100%",
     height: "auto",
-    top: "0",
-    left: "0",
   },
   quote: {
     width: "100%",
@@ -83,7 +80,7 @@ export default function About({}: Props) {
   return (
     <section className={classes.section}>
       <Title sx={{ color: theme.colors.gray[8] }} className={classes.title}>
-        Hagy mutatkozzak be!
+        Hadd mutatkozzak be!
       </Title>
       <Group
         position="center"
@@ -97,6 +94,7 @@ export default function About({}: Props) {
             initial={{ opacity: 0, translateY: "60%" }}
             custom={1}
             className={classes.imageContainer}
+            style={{ zIndex: 4 }}
           >
             <Image
               src="/images/measure.jpg"
@@ -117,16 +115,61 @@ export default function About({}: Props) {
             custom={2}
           >
             <Image
-              src="/images/rozsnyoLamps.jpg"
+              src="/images/lamp.jpg"
               alt="Rozsnyo lámpa"
               radius="sm"
               sx={{
                 border: "4px solid white",
                 position: "absolute",
-                width: "70%",
+                width: "30%",
                 height: "auto",
-                top: "-5rem",
-                left: "-2rem",
+                bottom: "-7rem",
+                right: "0",
+                borderRadius: "4px",
+              }}
+            />
+          </motion.div>
+          <motion.div
+            animate={controls}
+            ref={ref}
+            initial={{ opacity: 0, translateY: "60%" }}
+            className={classes.imageContainer}
+            custom={3}
+          >
+            <Image
+              src="/images/electronics.jpg"
+              alt="Villany szerelés"
+              radius="sm"
+              sx={{
+                border: "4px solid white",
+                position: "absolute",
+                width: "60%",
+                height: "auto",
+                top: "-7rem",
+                left: "-3rem",
+                borderRadius: "4px",
+              }}
+            />
+          </motion.div>
+          <motion.div
+            animate={controls}
+            ref={ref}
+            initial={{ opacity: 0, translateY: "60%" }}
+            className={classes.imageContainer}
+            custom={3}
+            style={{ zIndex: 10 }}
+          >
+            <Image
+              src="/images/panels.jpg"
+              alt="Villany szerelés"
+              radius="sm"
+              sx={{
+                border: "4px solid white",
+                position: "absolute",
+                width: "30%",
+                height: "auto",
+                top: "10rem",
+                left: "-4rem",
                 borderRadius: "4px",
               }}
             />

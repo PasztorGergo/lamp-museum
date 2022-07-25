@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Tortenetunk: NextPage = ({ historyArray }: any) => {
+const Tortenetunk: NextPage = ({ historyArray, genesis }: any) => {
   const { classes } = useStyles();
   return (
     <>
@@ -30,11 +30,11 @@ const Tortenetunk: NextPage = ({ historyArray }: any) => {
           </Title>
           <Text className={classes.text}>
             Tudjon meg többet a történetünkről, és jelenetősebb eseményekről
-            amelyek hatással voltak cégünkre!
+            amelyek hatással voltak gyűjteményünkre!
           </Text>
         </Stack>
       </header>
-      <History historyArray={historyArray} />
+      <History historyArray={historyArray} genesis={genesis} />
     </>
   );
 };
@@ -46,9 +46,12 @@ export async function getServerSideProps() {
     .sort((x: any) => x.date)
     .reverse();
 
+  const genesis = historyArray.find((x: any) => x.genesis);
+
   return {
     props: {
       historyArray,
+      genesis,
     },
   };
 }

@@ -11,7 +11,7 @@ import {
 } from "@mantine/core";
 import { Testimonial } from "../components";
 import connectDB from "../lib/connect";
-import { Support } from "../models";
+import { Partner } from "../models";
 
 const useStyles = createStyles((theme) => ({
   section: {
@@ -30,55 +30,45 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Tamogatoink: NextPage = ({ sponsorArray }: any) => {
+const Tamogatoink: NextPage = ({ partnerArray }: any) => {
   const theme = useMantineTheme();
   const { classes } = useStyles();
   return (
     <>
       <Head>
-        <title>Támogatóink | Villamostechnikai Gyűjtemény</title>
+        <title>Partner oldalak | Villamostechnikai Gyűjtemény</title>
       </Head>
       <Stack pt="8rem" px="6rem">
         <Title align="center" sx={{ color: theme.colors.gray[8] }}>
-          Támogatóink
+          Partner oldalak
         </Title>
         <Text align="center" size="lg" sx={{ color: theme.colors.gray[8] }}>
-          Szeretnénk támogatóinknak hálánkat kifejezni, amiért gyűjteményünket
-          akár tárgyi, akár tudásanyaggal segítették.
+          Itt találhatja Gyűjteményünk partnereinek a webdalait.
         </Text>
       </Stack>
 
       <section className={classes.section}>
-        {sponsorArray?.length > 0 ? (
-          sponsorArray.map(({ name, profileImg, contact }: any, id: number) => (
-            <Testimonial
-              key={id}
-              contact={contact}
-              name={name}
-              profileImg={profileImg}
-              isPage={false}
-            />
-          ))
+        {partnerArray?.length > 0 ? (
+          partnerArray.map(
+            ({ name, pageImg, contact, description }: any, id: number) => (
+              <Testimonial
+                key={id}
+                contact={contact}
+                name={name}
+                profileImg={pageImg}
+                comment={description}
+                isPage
+              />
+            )
+          )
         ) : (
-          <Stack align="center" justify="center">
+          <Stack align="center" justify="center" mb="24vh">
             <Title align="center" sx={{ color: theme.colors.gray[8] }}>
-              Jelenleg nincsenek támogatóink!
+              Jelenleg nincsenek partner oldalak!
             </Title>
-            <Text align="center" color="dimmed">
-              Legyen Ön az első!
-            </Text>
           </Stack>
         )}
       </section>
-      <Box px="sm">
-        <Title
-          align="center"
-          sx={{ width: "100%", color: theme.colors.gray[8] }}
-          mb="3rem"
-        >
-          Lépjen kapcsolatba velünk és legyen Ön a következő támogatónk!
-        </Title>
-      </Box>
     </>
   );
 };
@@ -86,11 +76,11 @@ const Tamogatoink: NextPage = ({ sponsorArray }: any) => {
 export async function getServerSideProps() {
   await connectDB();
 
-  const sponsorArray = JSON.parse(JSON.stringify(await Support.find({})));
+  const partnerArray = JSON.parse(JSON.stringify(await Partner.find({})));
 
   return {
     props: {
-      sponsorArray,
+      partnerArray,
     },
   };
 }

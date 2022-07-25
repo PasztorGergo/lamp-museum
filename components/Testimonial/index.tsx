@@ -1,4 +1,4 @@
-import { Avatar, Paper, Stack, Text } from "@mantine/core";
+import { Avatar, Card, Paper, Stack, Text, Image } from "@mantine/core";
 import React from "react";
 
 type Props = {
@@ -6,6 +6,7 @@ type Props = {
   comment?: string;
   contact?: string;
   profileImg: string;
+  isPage: boolean;
 };
 
 export default function Testimonial({
@@ -13,8 +14,33 @@ export default function Testimonial({
   comment,
   contact,
   profileImg,
+  isPage,
 }: Props) {
-  return (
+  return isPage ? (
+    <Card
+      component="a"
+      href={contact}
+      shadow="xs"
+      withBorder
+      p="md"
+      sx={{ width: "100%" }}
+    >
+      <Card.Section>
+        <Image src={profileImg} alt="weblap nézet" />
+      </Card.Section>
+      <Card.Section>
+        <Text
+          variant="gradient"
+          gradient={{ from: "orange", to: "yellow", deg: 45 }}
+          size="lg"
+          weight="bold"
+        >
+          {name}
+        </Text>
+        <Text variant="text">{comment}</Text>
+      </Card.Section>
+    </Card>
+  ) : (
     <Paper shadow="xs" withBorder p="md" sx={{ width: "100%" }}>
       <Stack justify="center" align="center">
         <Avatar

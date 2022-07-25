@@ -6,26 +6,21 @@ import {
   Stack,
   Text,
   Title,
-  useMantineTheme,
   Divider,
+  Image,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import ScrollIndicator from "../ScrollIndicator";
+import Carousel from "framer-motion-carousel";
 
 const useStyles = createStyles((theme) => ({
   header: {
     height: "90vh",
     marginTop: "2rem",
     background: `${theme.colors.orange[0]}6f`,
-    backgroundImage: "url('/images/lampSaving-removebg-preview.png')",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPositionX: "30%",
     width: "100%",
     position: "relative",
     display: "grid",
-    backgroundBlendMode: "screen",
-    backgroundPositionY: "100%",
     [theme.fn.largerThan("sm")]: {
       backgroundSize: "contain, cover",
       backgroundPositionY: 0,
@@ -65,8 +60,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function Hero() {
-  const theme = useMantineTheme();
+export default function Hero({ imgArray }: any) {
   const { classes } = useStyles();
   const breakPoint = useMediaQuery("(min-width: 790px)", false);
 
@@ -91,6 +85,11 @@ export default function Hero() {
             <ScrollIndicator />
           </Stack>
         </Stack>
+        <Carousel autoPlay interval={5000} loop>
+          {imgArray?.map(({ title, src }: any, i: number) => (
+            <Image key={i} src={src} alt={title} width="100%" />
+          ))}
+        </Carousel>
       </Group>
       <Paper p="md" withBorder className={classes.performance}>
         <Group position="center" grow>
@@ -98,14 +97,16 @@ export default function Hero() {
             <Title className={classes.text} order={5}>
               Gyűjteményünk
             </Title>
-            <Text className={classes.text}>+5000 lámpa</Text>
+            <Text className={classes.text}>
+              +10000 ipari és lakossági fényforrás
+            </Text>
           </Stack>
           <Divider sx={{ height: "100%" }} orientation="vertical" />
           <Stack justify="center" align="center">
             <Title className={classes.text} order={5}>
               Városok
             </Title>
-            <Text className={classes.text}>+10 helyszín</Text>
+            <Text className={classes.text}>+50 helyszín</Text>
           </Stack>
         </Group>
       </Paper>

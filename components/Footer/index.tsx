@@ -10,7 +10,7 @@ import {
   Text,
   Group,
 } from "@mantine/core";
-import { BrandFacebook, BrandTwitter, Mail } from "tabler-icons-react";
+import { BrandFacebook, BrandInstagram, Mail } from "tabler-icons-react";
 import { useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
@@ -50,12 +50,14 @@ export default function Footer() {
             <List.Item
               icon={
                 <ThemeIcon className={classes.icon}>
-                  <BrandTwitter />
+                  <BrandInstagram />
                 </ThemeIcon>
               }
               id="twitter"
             >
-              <Anchor href="https://twitter.com">@lampa-muzeum</Anchor>
+              <Anchor href="https://www.instagram.com/lampamanhgl400/">
+                lampamanhgl400
+              </Anchor>
             </List.Item>
             <List.Item
               icon={
@@ -65,8 +67,8 @@ export default function Footer() {
               }
               id="facebook"
             >
-              <Anchor href="https://www.facebook.com/levente.csikasz.77">
-                Lámpa múzeum
+              <Anchor href="https://www.facebook.com/villamostechnika">
+                Világítástechnika gyűjtemény
               </Anchor>
             </List.Item>
             <List.Item
@@ -77,16 +79,16 @@ export default function Footer() {
               }
               id="email"
             >
-              <Anchor href="mailto:lampamuzeum007@gmail.com">
-                lampamuzeum007@gmail.com
+              <Anchor href="mailto:villamostechnikaigyujtemeny@gmail.com">
+                villamostechnikaigyujtemeny@gmail.com
               </Anchor>
             </List.Item>
           </List>
         </Stack>
         <Stack align="center" justify="center">
           <Text className={classes.text}>
-            <strong>Lámpa múzeum</strong> | Minden jog fentartva! &copy;{" "}
-            {new Date().getUTCFullYear()}
+            <strong>Világítástechnika gyűjtemény</strong> | Minden jog
+            fentartva! &copy; {new Date().getUTCFullYear()}
           </Text>
           <Text size="xs" className={classes.text}>
             Készítette{" "}
