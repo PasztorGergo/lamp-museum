@@ -66,6 +66,7 @@ export default function About({}: Props) {
   const theme = useMantineTheme();
   const { classes } = useStyles();
   const breakpoint = useMediaQuery("(min-width: 790px)", false);
+  const imgbreak = useMediaQuery("(min-width: 994px)", false);
 
   useEffect(() => {
     if (inView) {
@@ -113,6 +114,7 @@ export default function About({}: Props) {
             initial={{ opacity: 0, translateY: "60%" }}
             className={classes.imageContainer}
             custom={2}
+            style={{ zIndex: 11 }}
           >
             <Image
               src="/images/lamp.jpg"
@@ -121,7 +123,7 @@ export default function About({}: Props) {
               sx={{
                 border: "4px solid white",
                 position: "absolute",
-                width: "30%",
+                width: imgbreak ? "30%" : "40%",
                 height: "auto",
                 bottom: "-7rem",
                 right: "0",
@@ -143,7 +145,7 @@ export default function About({}: Props) {
               sx={{
                 border: "4px solid white",
                 position: "absolute",
-                width: "60%",
+                width: imgbreak ? "60%" : "80%",
                 height: "auto",
                 top: "-7rem",
                 left: "-3rem",
@@ -168,8 +170,8 @@ export default function About({}: Props) {
                 position: "absolute",
                 width: "30%",
                 height: "auto",
-                top: "10rem",
-                left: "-4rem",
+                top: imgbreak ? "10vh" : "5vh",
+                left: imgbreak ? "-4rem" : "-10vw",
                 borderRadius: "4px",
               }}
             />

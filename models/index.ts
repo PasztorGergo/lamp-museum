@@ -6,5 +6,4 @@ export { News } from "./news";
 export { Testimonial } from "./testimonials";
 export { Histroy } from "./history";
 export { Support } from "./support";
-export { Partner } from "./Partner";
-export { Header } from "./header";
+export { Partner } from "./partner";

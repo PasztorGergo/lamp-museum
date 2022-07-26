@@ -34,13 +34,6 @@ export default function History({ historyArray, genesis }: Props) {
   const breakpoint = useMediaQuery("(min-width: 690px)", false);
   return (
     <section className={classes.main}>
-      <Title>{genesis.title}</Title>
-      <Text>{genesis.text}</Text>
-      <Group sx={{ width: "100%" }} grow>
-        {genesis.src.map((img: any) => (
-          <Image src={img} radius="sm" />
-        ))}
-      </Group>
       <Timeline active={Infinity} color="orange" bulletSize={32} lineWidth={3}>
         {historyArray.map(({ title, text, src }: any, id: number) => (
           <Timeline.Item

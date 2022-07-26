@@ -23,12 +23,12 @@ export default function Testimonial({
       shadow="xs"
       withBorder
       p="md"
-      sx={{ width: "100%" }}
+      sx={{ width: "40%" }}
     >
       <Card.Section>
         <Image src={profileImg} alt="weblap nézet" />
       </Card.Section>
-      <Card.Section>
+      <Card.Section p="md">
         <Text
           variant="gradient"
           gradient={{ from: "orange", to: "yellow", deg: 45 }}

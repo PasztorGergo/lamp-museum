@@ -46,12 +46,9 @@ export async function getServerSideProps() {
     .sort((x: any) => x.date)
     .reverse();
 
-  const genesis = historyArray.find((x: any) => x.genesis);
-
   return {
     props: {
       historyArray,
-      genesis,
     },
   };
 }

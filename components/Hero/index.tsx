@@ -11,7 +11,6 @@ import {
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import ScrollIndicator from "../ScrollIndicator";
-import Carousel from "framer-motion-carousel";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -21,6 +20,12 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     position: "relative",
     display: "grid",
+    backgroundImage: "url('/images/lampSaving-removebg-preview.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPositionX: "30%",
+    backgroundBlendMode: "screen",
+    backgroundPositionY: "100%",
     [theme.fn.largerThan("sm")]: {
       backgroundSize: "contain, cover",
       backgroundPositionY: 0,
@@ -95,6 +100,12 @@ export default function Hero({ imgArray }: any) {
             <Text className={classes.text}>
               +10000 ipari és lakossági fényforrás
             </Text>
+            {breakPoint && (
+              <>
+                <Text>+700 közvilágítási-, ipari lámpatest</Text>
+                <Text>+600 retro utcaképi elem</Text>
+              </>
+            )}
           </Stack>
           <Divider sx={{ height: "100%" }} orientation="vertical" />
           <Stack justify="center" align="center">

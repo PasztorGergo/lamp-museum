@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { Hero, News, About } from "../components";
 import connectDB from "../lib/connect";
-import { Header, News as n } from "../models";
+import { News as n } from "../models";
 
 const Home: NextPage = ({ newsArray, imgArray }: any) => {
   return (
@@ -44,12 +44,9 @@ export async function getServerSideProps() {
     .sort((x: any) => x.date)
     .reverse();
 
-  const imgArray = JSON.parse(JSON.stringify(await Header.find({})));
-
   return {
     props: {
       newsArray,
-      imgArray,
     },
   };
 }
