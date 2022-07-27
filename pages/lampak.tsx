@@ -17,14 +17,14 @@ const Lampak: NextPage = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          type,
+          type: type == "public" ? "lamp" : type,
         }),
       }))().then((x) => x.json().then((y) => setLamp(y)));
   }, [, type]);
 
   const types = [
     { value: "lamp", label: "Fényforrások" },
-    { value: "lamp", label: "Közvilágítási Lámpatestek" },
+    { value: "public", label: "Közvilágítási Lámpatestek" },
     { value: "electronic", label: "Elektrotechnikai eszközök" },
     { value: "special", label: "Érdekességek" },
     { value: "retro", label: "Retro gyűjtemény" },
