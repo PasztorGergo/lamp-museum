@@ -24,6 +24,7 @@ const Lampak: NextPage = () => {
 
   const types = [
     { value: "lamp", label: "Fényforrások" },
+    { value: "lamp", label: "Közvilágítási Lámpatestek" },
     { value: "electronic", label: "Elektrotechnikai eszközök" },
     { value: "special", label: "Érdekességek" },
     { value: "retro", label: "Retro gyűjtemény" },

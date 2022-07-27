@@ -6,6 +6,8 @@ import {
   Image,
   Group,
   createStyles,
+  Blockquote,
+  useMantineTheme,
 } from "@mantine/core";
 import { Bulb } from "tabler-icons-react";
 import { useMediaQuery } from "@mantine/hooks";
@@ -31,9 +33,13 @@ type Props = {
 
 export default function History({ historyArray, genesis }: Props) {
   const { classes } = useStyles();
+  const theme = useMantineTheme();
   const breakpoint = useMediaQuery("(min-width: 690px)", false);
   return (
     <section className={classes.main}>
+      <Blockquote cite="- Csíkász Levente" sx={{ color: theme.colors.gray[8] }}>
+        {genesis?.text}
+      </Blockquote>
       <Timeline active={Infinity} color="orange" bulletSize={32} lineWidth={3}>
         {historyArray.map(({ title, text, src }: any, id: number) => (
           <Timeline.Item

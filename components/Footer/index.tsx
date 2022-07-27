@@ -68,7 +68,7 @@ export default function Footer() {
               id="facebook"
             >
               <Anchor href="https://www.facebook.com/villamostechnika">
-                Világítástechnika gyűjtemény
+                Villamostechnikai gyűjtemény
               </Anchor>
             </List.Item>
             <List.Item
@@ -87,7 +87,7 @@ export default function Footer() {
         </Stack>
         <Stack align="center" justify="center">
           <Text className={classes.text}>
-            <strong>Világítástechnika gyűjtemény</strong> | Minden jog
+            <strong>Villamostechnikai gyűjtemény</strong> | Minden jog
             fentartva! &copy; {new Date().getUTCFullYear()}
           </Text>
           <Text size="xs" className={classes.text}>

@@ -62,6 +62,7 @@ const useStyles = createStyles((theme) => ({
   },
   text: {
     color: theme.colors.gray[8],
+    textAlign: "center",
   },
 }));
 
