@@ -153,6 +153,30 @@ export default function About({}: Props) {
               }}
             />
           </motion.div>
+
+          <motion.div
+            animate={controls}
+            ref={ref}
+            initial={{ opacity: 0, translateY: "60%" }}
+            className={classes.imageContainer}
+            custom={3}
+            style={{ zIndex: 10 }}
+          >
+            <Image
+              src="/imgages/panels.JPG"
+              alt="Panelek"
+              radius="sm"
+              sx={{
+                border: "4px solid white",
+                position: "absolute",
+                width: "30%",
+                height: "auto",
+                top: imgbreak ? "10vh" : "5vh",
+                left: imgbreak ? "-4rem" : "-10vw",
+                borderRadius: "4px",
+              }}
+            />
+          </motion.div>
         </Box>
         <Stack justify="center" align="center" className={classes.quote}>
           <Blockquote
