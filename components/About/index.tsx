@@ -139,7 +139,7 @@ export default function About({}: Props) {
             custom={3}
           >
             <Image
-              src="/images/electronics.jpg"
+              src="/images/electronics.JPG"
               alt="Villany szerelés"
               radius="sm"
               sx={{
@@ -162,7 +162,7 @@ export default function About({}: Props) {
             style={{ zIndex: 10 }}
           >
             <Image
-              src="/imgages/panels.jpg"
+              src="/imgages/panels.JPG"
               alt="Panelek"
               radius="sm"
               sx={{
