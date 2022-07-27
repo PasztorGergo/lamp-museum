@@ -103,8 +103,10 @@ export default function Hero({ imgArray }: any) {
             </Text>
             {breakPoint && (
               <>
-                <Text>+700 közvilágítási-, ipari lámpatest</Text>
-                <Text>+600 retro utcaképi elem</Text>
+                <Text className={classes.text}>
+                  +700 közvilágítási-, ipari lámpatest
+                </Text>
+                <Text className={classes.text}>+600 retro utcaképi elem</Text>
               </>
             )}
           </Stack>

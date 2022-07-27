@@ -118,7 +118,7 @@ export default function About({}: Props) {
           >
             <Image
               src="/images/lamp.jpg"
-              alt="Rozsnyo lámpa"
+              alt="Lámpa"
               radius="sm"
               sx={{
                 border: "4px solid white",
@@ -162,8 +162,8 @@ export default function About({}: Props) {
             style={{ zIndex: 10 }}
           >
             <Image
-              src="/images/panels.jpg"
-              alt="Villany szerelés"
+              src="/imgages/panels.jpg"
+              alt="Panelek"
               radius="sm"
               sx={{
                 border: "4px solid white",
