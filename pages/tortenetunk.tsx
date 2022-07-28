@@ -29,7 +29,7 @@ const Tortenetunk: NextPage = ({ historyArray, genesis }: any) => {
             Töténetünk
           </Title>
           <Text className={classes.text}>
-            Tudjon meg többet a történetünkről, és jelenetősebb eseményekről
+            Tudjon meg többet a történetünkről, és jelentősebb eseményekről
             amelyek hatással voltak gyűjteményünkre!
           </Text>
         </Stack>
