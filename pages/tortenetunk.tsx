@@ -26,7 +26,7 @@ const Tortenetunk: NextPage = ({ historyArray, genesis }: any) => {
       <header className={classes.header}>
         <Stack>
           <Title order={1} className={classes.text}>
-            Töténetünk
+            Történetünk
           </Title>
           <Text className={classes.text}>
             Tudjon meg többet a történetünkről, és jelentősebb eseményekről
