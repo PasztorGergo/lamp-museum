@@ -37,7 +37,7 @@ const Home: NextPage = ({ newsArray, imgArray }: any) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   await connectDB();
 
   const newsArray = JSON.parse(JSON.stringify(await n.find({})))
@@ -48,6 +48,7 @@ export async function getServerSideProps() {
     props: {
       newsArray,
     },
+    revalidate: 60,
   };
 }
 
